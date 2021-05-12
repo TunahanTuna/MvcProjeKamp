@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer
+namespace DataAccessLayer.Concrete.Repositories
 {
-    public class Class1
+    public class WriterRepository<T> : GenericRepository<T> where T : class
     {
     }
 }
