@@ -20,7 +20,10 @@ namespace DataAccessLayer.Concrete.Repositories
         }
         public void Delete(T p)
         {
-            _object.Remove(p);
+            // Entity State ile silme kullanıyoruz.
+            var deletedEntity = c.Entry(p);
+            deletedEntity.State = EntityState.Deleted;
+            // _object.Remove(p);
             c.SaveChanges();
         }
 
@@ -31,7 +34,10 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Insert(T p)
         {
-            _object.Add(p);
+            // Entity State ile ekleme kullanıyoruz.
+            var addedEntity = c.Entry(p);
+            addedEntity.State = EntityState.Added;
+            // _object.Add(p);
             c.SaveChanges();
         }
 
@@ -47,6 +53,9 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Update(T p)
         {
+            // Entity State ile düzenleme yapıyoruz.
+            var updatedEntity = c.Entry(p);
+            updatedEntity.State = EntityState.Modified;
             c.SaveChanges();
         }
     }
