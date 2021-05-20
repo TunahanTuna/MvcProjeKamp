@@ -29,6 +29,9 @@ namespace EntityLayer.Concrete
         [StringLength(100)]
         public string WriterImage { get; set; }
 
+        [StringLength(50)]
+        public string WriterTitle { get; set; }
+
 
         public ICollection<Heading> Headings { get; set; }
 
