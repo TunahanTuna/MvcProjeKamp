@@ -19,6 +19,7 @@ namespace MvcProjeKamp.Controllers
             var heading = headingManager.GetList();
             return View(heading);
         }
+
         [HttpGet]
         public ActionResult AddHeading()
         {
@@ -45,6 +46,19 @@ namespace MvcProjeKamp.Controllers
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             headingManager.HeadingAdd(heading);
             return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult EditHeading(int id)
+        {
+            List<SelectListItem> categoryValue = (from x in categoryManager.GetList() // DropDownList için kullandık, yeni öğrendiğimiz bir şey, Önemli!!
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName, // Display Number
+                                                      Value = x.CategoryID.ToString() // Value Number
+                                                  }).ToList();
+            ViewBag.vlc = categoryValue;
+            var headingValue = headingManager.getById(id);
+            return View(headingValue);
         }
     }
 }
