@@ -11,11 +11,11 @@ namespace BusinessLayer.Abstract
     {
         List<About> GetList();
 
-        void CategoryAdd(About about);
+        void AboutAdd(About about);
 
-        void CategoryDelete(About about);
+        void AboutDelete(About about);
 
-        void CategoryUpdate(About about);
-        Category getById(int id);
+        void AboutUpdate(About about);
+        About getById(int id);
     }
 }

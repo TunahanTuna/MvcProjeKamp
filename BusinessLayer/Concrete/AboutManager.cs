@@ -18,29 +18,29 @@ namespace BusinessLayer.Concrete
             _aboutDal = aboutDal;
         }
 
-        public void CategoryAdd(About about)
+        public void AboutAdd(About about)
         {
-            throw new NotImplementedException();
+            _aboutDal.Insert(about);
         }
 
-        public void CategoryDelete(About about)
+        public void AboutDelete(About about)
         {
-            throw new NotImplementedException();
+            _aboutDal.Delete(about);
         }
 
-        public void CategoryUpdate(About about)
+        public void AboutUpdate(About about)
         {
-            throw new NotImplementedException();
+            _aboutDal.Update(about);
         }
 
-        public Category getById(int id)
+        public About getById(int id)
         {
-            throw new NotImplementedException();
+            return _aboutDal.Get(x => x.AboutID == id);
         }
 
         public List<About> GetList()
         {
-            throw new NotImplementedException();
+            return _aboutDal.list();
         }
     }
 }
